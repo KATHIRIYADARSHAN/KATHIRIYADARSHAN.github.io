@@ -92,7 +92,14 @@
                 <div class="row">
                   <div class="col-md-5 col-sm-6">
                     <div class="about-avatar-wrapper"><img src="img/about-avatar.jpg" alt="Darshan Kathiriya" class="img-responsive about-avatar">
-                      <button class="btn btn-cta btn-cta-solid">Download resume as .pdf</button>
+                      <a href="Darshan-converted.pdf" class="btn btn-cta btn-cta-solid" download>Download resume as .pdf
+                      </a>
+                      <div id="content">
+                         <h3>Hello, this is a H3 tag</h3>
+                          <p>A paragraph</p>
+                      </div>
+                    <div id="editor"></div>
+                      <button id="cmd">generate PDF</button>
                     </div>
                   </div>
                   <div class="col-md-7 col-sm-6">
@@ -270,7 +277,7 @@
                       <li class="event">
                         <input id="checkbox-exp1" type="radio" name="exp-tl-group" checked>
                         <label></label>
-                        <div class="thumb company1"><span>2016 - Now</span></div>
+                        <div class="thumb company1"><span>2019 - Now</span></div>
                         <div class="content-perspective">
                           <div class="content">
                             <div class="content-inner">
@@ -283,7 +290,7 @@
                       <li class="event">
                         <input id="checkbox-exp2" type="radio" name="exp-tl-group">
                         <label></label>
-                        <div class="thumb company2"><span>2012 - 2016</span></div>
+                        <div class="thumb company2"><span>2012 - 2019</span></div>
                         <div class="content-perspective">
                           <div class="content">
                             <div class="content-inner">
@@ -344,7 +351,7 @@
                         <div class="content-perspective">
                           <div class="content">
                             <div class="content-inner">
-                              <h3>Univerity of Design: <span>MSC</span></h3>
+                              <h3>Department Of Statistics: <span>MSC Statistics</span></h3>
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare sem sed quam tempus aliquet vitae eget dolor. Proin eu ultrices libero. Curabitur vulputate vestibulum elementum.</p>
                             </div>
                           </div>
@@ -353,11 +360,11 @@
                       <li class="event">
                         <input type="radio" name="edu-tl-group">
                         <label></label>
-                        <div class="thumb company-edu2"><span>2012 - 2016</span></div>
+                        <div class="thumb company-edu2"><span>2017 - 2019</span></div>
                         <div class="content-perspective">
                           <div class="content">
                             <div class="content-inner">
-                              <h3>Boston state University: <span>Visual Art & Design</span></h3>
+                              <h3>department of computer science: <span>MCA</span></h3>
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare sem sed quam tempus aliquet vitae eget dolor. Proin eu ultrices libero. Curabitur vulputate vestibulum elementum.</p>
                             </div>
                           </div>
@@ -366,11 +373,11 @@
                       <li class="event">
                         <input type="radio" name="edu-tl-group">
                         <label></label>
-                        <div class="thumb company-edu3"><span>2009 - 2012</span></div>
+                        <div class="thumb company-edu3"><span>2014 - 2017</span></div>
                         <div class="content-perspective">
                           <div class="content">
                             <div class="content-inner">
-                              <h3>Izhevsk state University: <span>CAD</span></h3>
+                              <h3>T N RAO College: <span>BCA</span></h3>
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare sem sed quam tempus aliquet vitae eget dolor. Proin eu ultrices libero. Curabitur vulputate vestibulum elementum.</p>
                             </div>
                           </div>
@@ -472,11 +479,8 @@
                     <div class="block-my-social">
                       <h3>I'm in the social networks</h3>
                       <ul class="social-links-list">
-                        <li><a href="#" class="my-social-link"><img src="img/icons/vkontakte-logo.svg" alt="VK"></a></li>
-                        <li><a href="#" class="my-social-link"><img src="img/icons/facebook-logotype-button.svg" alt="Facebook"></a></li>
-                        <li><a href="#" class="my-social-link"><img src="img/icons/linkedin.svg" alt="LinkedIn"></a></li>
-                        <li><a href="#" class="my-social-link"><img src="img/icons/dribbble.svg" alt="Dribbble"></a></li>
-                        <li><a href="#" class="my-social-link"><img src="img/icons/twitter-logo.svg" alt="Twitter"></a></li>
+                        <li><a href="https://api.whatsapp.com/send?phone=919157650552&amp;text=Hello Darshan" class="my-social-link"><img src="img/icons/whatsapp.png" alt="whatsapp"></a></li>
+                        <li><a href="https://m.me/100004612155919" class="my-social-link"><img src="img/icons/facebook.png" alt="Facebook"></a></li>
                       </ul>
                     </div>
                   </div>
@@ -547,6 +551,19 @@
                 d.addEventListener("DOMContentLoaded", f, false);
             } else { f(); }
         })(document, window, "yandex_metrika_callbacks");
+
+
+        var doc = new jsPDF();
+        var specialElementHandlers = {
+          '#editor': function (element, renderer) {
+              return true;
+          }
+        };
+
+        $('#cmd').click(function () {
+          doc.fromHTML($('#content').html(), 15, 15, {'width': 170,'elementHandlers': specialElementHandlers });
+          doc.save('Darshan.pdf');
+        });
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/36315710" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->        
